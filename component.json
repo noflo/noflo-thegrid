@@ -1,0 +1,24 @@
+{
+  "name": "noflo-thegrid",
+  "description": "TheGrid components for NoFlo",
+  "author": "Henri Bergius <henri.bergius@iki.fi>",
+  "repo": "noflo/noflo-thegrid",
+  "version": "0.1.0",
+  "keywords": [],
+  "dependencies": {
+    "noflo/noflo": "*",
+    "visionmedia/superagent": "*"
+  },
+  "scripts": [
+    "index.js",
+    "components/CreatePost.coffee"
+  ],
+  "json": [
+    "component.json"
+  ],
+  "noflo": {
+    "components": {
+      "CreatePost": "components/CreatePost.coffee"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "noflo-thegrid",
+  "description": "TheGrid components for NoFlo",
+  "version": "0.1.0",
+  "author": {
+    "name": "Henri Bergius",
+    "email": "henri.bergius@iki.fi",
+    "url": "http://bergie.iki.fi"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/noflo/noflo-thegrid.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "undefined/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "noflo": "~0.5.0",
+    "superagent": "^0.18.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-coffee": "~0.10.1",
+    "grunt-coffeelint": "~0.0.10",
+    "grunt-cafe-mocha": "~0.1.12",
+    "chai": "~1.5.0",
+    "mocha": "~1.9.0",
+    "grunt-mocha-phantomjs": "~0.2.2",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-watch": "~0.3.1",
+    "grunt-noflo-manifest": "~0.1.11",
+    "grunt-noflo-browser": "^0.1.1"
+  },
+  "keywords": [],
+  "noflo": {
+    "components": {
+      "CreatePost": "components/CreatePost.coffee"
+    }
+  }
+}
