@@ -13,6 +13,8 @@ exports.getComponent = ->
     required: yes
   c.outPorts.add 'out',
     datatype: 'string'
+  c.outPorts.add 'error',
+    datatype: 'object'
 
   noflo.helpers.WirePattern c,
     in: 'item'

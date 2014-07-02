@@ -26,3 +26,5 @@ describe 'CreatePost component', ->
       chai.expect(c.inPorts.token).to.be.an 'object'
     it 'should have an output port', ->
       chai.expect(c.outPorts.out).to.be.an 'object'
+    it 'should have an error port', ->
+      chai.expect(c.outPorts.error).to.be.an 'object'
