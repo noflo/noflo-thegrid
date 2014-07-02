@@ -11,14 +11,18 @@
   },
   "scripts": [
     "index.js",
-    "components/CreatePost.coffee"
+    "components/CreatePost.coffee",
+    "components/GetServerData.coffee",
+    "components/PostServerData.coffee"
   ],
   "json": [
     "component.json"
   ],
   "noflo": {
     "components": {
-      "CreatePost": "components/CreatePost.coffee"
+      "CreatePost": "components/CreatePost.coffee",
+      "GetServerData": "components/GetServerData.coffee",
+      "PostServerData": "components/PostServerData.coffee"
     }
   }
 }
