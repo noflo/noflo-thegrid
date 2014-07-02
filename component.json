@@ -13,7 +13,8 @@
     "index.js",
     "components/CreatePost.coffee",
     "components/GetServerData.coffee",
-    "components/PostServerData.coffee"
+    "components/PostServerData.coffee",
+    "components/GetStyle.coffee"
   ],
   "json": [
     "component.json"
@@ -22,6 +23,7 @@
     "components": {
       "CreatePost": "components/CreatePost.coffee",
       "GetServerData": "components/GetServerData.coffee",
+      "GetStyle": "components/GetStyle.coffee",
       "PostServerData": "components/PostServerData.coffee"
     }
   }
