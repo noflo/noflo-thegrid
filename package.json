@@ -37,7 +37,8 @@
   "keywords": [],
   "noflo": {
     "components": {
-      "CreatePost": "components/CreatePost.coffee"
+      "CreatePost": "components/CreatePost.coffee",
+      "GetStyle": "components/GetStyle.coffee"
     }
   }
 }

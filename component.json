@@ -11,14 +11,16 @@
   },
   "scripts": [
     "index.js",
-    "components/CreatePost.coffee"
+    "components/CreatePost.coffee",
+    "components/GetStyle.coffee"
   ],
   "json": [
     "component.json"
   ],
   "noflo": {
     "components": {
-      "CreatePost": "components/CreatePost.coffee"
+      "CreatePost": "components/CreatePost.coffee",
+      "GetStyle": "components/GetStyle.coffee"
     }
   }
 }
