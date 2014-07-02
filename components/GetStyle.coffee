@@ -30,7 +30,7 @@ exports.getComponent = ->
     async: true
   , (data, groups, out, callback) ->
     type = if data.ordered then 'article' else 'feed'
-    superagent.get "https://api.thegrid.io/item/#{data.theme}/#{data.layout}/#{type}"
+    superagent.get "https://api.thegrid.io/theme/#{data.theme}/#{data.layout}/#{type}"
     .set('Authorization', "Bearer #{c.params.token}")
     .set('Accept', 'application/json')
     .end (err, res) ->
