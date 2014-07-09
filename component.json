@@ -14,7 +14,8 @@
     "components/CreatePost.coffee",
     "components/GetServerData.coffee",
     "components/PostServerData.coffee",
-    "components/GetStyle.coffee"
+    "components/GetStyle.coffee",
+    "components/ObjectStore.coffee"
   ],
   "json": [
     "component.json"
@@ -24,6 +25,7 @@
       "CreatePost": "components/CreatePost.coffee",
       "GetServerData": "components/GetServerData.coffee",
       "GetStyle": "components/GetStyle.coffee",
+      "ObjectStore": "components/ObjectStore.coffee",
       "PostServerData": "components/PostServerData.coffee"
     }
   }

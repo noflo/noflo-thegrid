@@ -19,7 +19,8 @@
   ],
   "dependencies": {
     "noflo": "~0.5.0",
-    "superagent": "^0.18.0"
+    "superagent": "^0.18.0",
+    "underscore": "^1.6.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -41,6 +42,7 @@
       "CreatePost": "components/CreatePost.coffee",
       "GetServerData": "components/GetServerData.coffee",
       "GetStyle": "components/GetStyle.coffee",
+      "ObjectStore": "components/ObjectStore.coffee",
       "PostServerData": "components/PostServerData.coffee"
     }
   }
