@@ -36,10 +36,10 @@ exports.getComponent = ->
 
   c.inPorts.update.on 'data', (data) ->
     unless data instanceof Object
-      throw new TypeError '"in" only accepts objects.'
+      throw new TypeError '"update" only accepts objects.'
 
     updates = data
 
-    updateAndSend() if object
+    do updateAndSend if object
 
   return c
