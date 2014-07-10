@@ -9,8 +9,9 @@ exports.getComponent = ->
   updateAndSend = ->
     return unless object and updates
 
-    c.outPorts.out.send _.extend object, updates
+    updatedObject = _.extend object, updates
     updates = null
+    c.outPorts.out.send updatedObject
     c.outPorts.out.disconnect()
 
   c = new noflo.Component

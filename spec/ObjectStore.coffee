@@ -1,10 +1,10 @@
 noflo = require 'noflo'
-sinon = require 'sinon'
 
 if noflo.isBrowser()
   ObjectStore = require 'noflo-thegrid/components/ObjectStore.js'
 else
   chai = require 'chai' unless chai
+  sinon = require 'sinon'
   ObjectStore = require '../components/ObjectStore.coffee'
 
 expect = chai.expect unless expect
@@ -106,6 +106,32 @@ describe 'ObjectStore', ->
           done()
 
         updateIn.send another: 'test'
+
+    describe 'with multiple "in" signals', ->
+
+      it 'should only send once', ->
+        outOut.on 'data', callback
+
+        updateIn.send another: 'test'
+        inIn.send {test: 1}
+        inIn.send {test: 2}
+        inIn.send {test: 3}
+        inIn.send {test: 4}
+
+        expect(callback.callCount).to.equal 1
+
+    describe 'with multiple "update" signals', ->
+
+      it 'should send each one', ->
+        outOut.on 'data', callback
+
+        inIn.send {test: true}
+        updateIn.send another: 'test1'
+        updateIn.send another: 'test2'
+        updateIn.send another: 'test3'
+        updateIn.send another: 'test4'
+
+        expect(callback.callCount).to.equal 4
 
   describe 'error handling', ->
 
