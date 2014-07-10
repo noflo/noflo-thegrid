@@ -7,7 +7,8 @@
   "keywords": [],
   "dependencies": {
     "noflo/noflo": "*",
-    "visionmedia/superagent": "*"
+    "visionmedia/superagent": "*",
+    "jashkenas/underscore": "^1.6.0"
   },
   "scripts": [
     "index.js",
