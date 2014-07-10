@@ -4,13 +4,13 @@ _ = require 'underscore'
 
 exports.getComponent = ->
   object = null
-  updates = {}
+  updates = null
 
-  updateAndSend = (data=object) ->
-    object = _.extend data, updates
-    updates = {}
+  updateAndSend = ->
+    return unless object and updates
 
-    c.outPorts.out.send object
+    c.outPorts.out.send _.extend object, updates
+    updates = null
     c.outPorts.out.disconnect()
 
   c = new noflo.Component
@@ -33,7 +33,9 @@ exports.getComponent = ->
     unless data instanceof Object
       throw new TypeError '"in" only accepts objects.'
 
-    updateAndSend data
+    object = data
+
+    do updateAndSend
 
   c.inPorts.update.on 'data', (data) ->
     unless data instanceof Object
@@ -41,6 +43,6 @@ exports.getComponent = ->
 
     updates = data
 
-    do updateAndSend if object
+    do updateAndSend
 
   return c

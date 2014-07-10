@@ -1,4 +1,6 @@
 noflo = require 'noflo'
+sinon = require 'sinon'
+
 if noflo.isBrowser()
   ObjectStore = require 'noflo-thegrid/components/ObjectStore.js'
 else
@@ -14,9 +16,11 @@ describe 'ObjectStore', ->
   inIn = null
   updateIn = null
   outOut = null
+  callback = null
 
   beforeEach ->
     c = ObjectStore.getComponent()
+    callback = sinon.spy()
 
     inIn = noflo.internalSocket.createSocket()
     updateIn = noflo.internalSocket.createSocket()
@@ -41,23 +45,16 @@ describe 'ObjectStore', ->
 
   describe 'data flow', ->
 
-    describe 'with data on the "in" port', ->
+    describe 'with data on the "in" port only', ->
 
-      it 'should send the object to the "out" port', (done) ->
-        outOut.on 'data', (data) ->
-          expect(data).to.deep.equal
-            test: true
-          done()
+      it 'should not send the object to the "out" port', ->
+        outOut.on 'data', callback
 
         inIn.send {test: true}
 
-      it 'should disconnect the "out" port', (done) ->
-        outOut.on 'disconnect', ->
-          done()
+        expect(callback.called).to.be.false
 
-        inIn.send {test: true}
-
-    describe 'with data on first "update" and later "in" port', ->
+    describe 'with data on "update" and "in" port', ->
 
       it 'should send the updated object to the outport', (done) ->
         outOut.on 'data', (data) ->
@@ -69,16 +66,15 @@ describe 'ObjectStore', ->
         updateIn.send another: 'test'
         inIn.send test: true
 
-      it 'should consume the "update" port with data on "in"', (done) ->
+      it 'should consume the "update" port with data on "in"', ->
         updateIn.send another: 'test'
         inIn.send test: true
 
-        outOut.on 'data', (data) ->
-          expect(data).to.deep.equal
-            unrelated: 'data'
-          done()
+        outOut.on 'data', callback
 
         inIn.send unrelated: 'data'
+
+        expect(callback.called).to.be.false
 
     describe 'with data on first "in" and later "update" port', ->
 
@@ -93,16 +89,15 @@ describe 'ObjectStore', ->
 
         updateIn.send another: 'test'
 
-      it 'should consume the "update" port with data on "in"', (done) ->
+      it 'should consume the "update" port with data on "in"', ->
         inIn.send test: true
         updateIn.send another: 'test'
 
-        outOut.on 'data', (data) ->
-          expect(data).to.deep.equal
-            unrelated: 'data'
-          done()
+        outOut.on 'data', callback
 
         inIn.send unrelated: 'data'
+
+        expect(callback.called).to.be.false
 
       it 'should disconnect the "out" port', (done) ->
         inIn.send {test: true}
