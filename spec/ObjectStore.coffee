@@ -51,6 +51,12 @@ describe 'ObjectStore', ->
 
         inIn.send {test: true}
 
+      it 'should disconnect the "out" port', (done) ->
+        outOut.on 'disconnect', ->
+          done()
+
+        inIn.send {test: true}
+
     describe 'with data on first "update" and later "in" port', ->
 
       it 'should send the updated object to the outport', (done) ->
@@ -97,6 +103,14 @@ describe 'ObjectStore', ->
           done()
 
         inIn.send unrelated: 'data'
+
+      it 'should disconnect the "out" port', (done) ->
+        inIn.send {test: true}
+
+        outOut.on 'disconnect', ->
+          done()
+
+        updateIn.send another: 'test'
 
   describe 'error handling', ->
 
