@@ -11,6 +11,7 @@ exports.getComponent = ->
     updates = {}
 
     c.outPorts.out.send object
+    c.outPorts.out.disconnect()
 
   c = new noflo.Component
   c.description = "Stores an object an incrementally updates it with the object
