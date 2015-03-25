@@ -35,6 +35,7 @@ exports.getComponent = ->
     .set('Accept', 'application/json')
     .end (err, res) ->
       return callback err if err
+      return callback res.error if res.error
       try
         out.send JSON.parse res.text
       catch e
