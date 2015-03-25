@@ -11,6 +11,9 @@
     "amd",
     "node"
   ],
+  "dependencies": {
+    "sinon": "1.14.1"
+   },
   "license": "MIT",
   "private": true,
   "ignore": [
