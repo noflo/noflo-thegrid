@@ -35,7 +35,7 @@
     "grunt-noflo-manifest": "0.1.11",
     "grunt-noflo-browser": "0.1.11",
     "bower": "1.5.3",
-    "sinon": "1.17.0"
+    "sinon": "1.17.1"
   },
   "scripts": {
     "test": "grunt test"
