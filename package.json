@@ -34,7 +34,7 @@
     "grunt-contrib-watch": "0.6.1",
     "grunt-noflo-manifest": "0.1.11",
     "grunt-noflo-browser": "0.1.11",
-    "bower": "1.5.3",
+    "bower": "1.6.8",
     "sinon": "1.17.1"
   },
   "scripts": {
